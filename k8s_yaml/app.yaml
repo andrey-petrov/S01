@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: users-mysql
+  labels:
+    app: users-mysql
+spec:
+  replicas: 2
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: users-mysql
+  template:
+    metadata:
+      labels:
+        app: users-mysql
+    spec:
+      containers:
+      - name: users-mysql
+        image: users-mysql
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8086
+          name: web-port
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: users-mysql
+  labels:
+    app: users-mysql
+spec:
+  type: NodePort
+  ports:
+  - port: 80
+    targetPort: web-port
+    protocol: TCP
+  selector:
+    app: users-mysql
