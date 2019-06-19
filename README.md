@@ -20,7 +20,8 @@ Answers to questions:
 **Question 5 - Can you do a HA of a database? Any way to keep the data persistent when pods are
 recreated?**
 
-Answer: We can do HA of db. It's huge discussion in DevOps community about DBs in k8s, but in general - DBs are
+Answer:
+We can do HA of db. It's huge discussion in DevOps community about DBs in k8s, but in general - DBs are
 just one of stateful-solutions. Here is old example
 [pets vs cattle](https://www.theregister.co.uk/2013/03/18/servers_pets_or_cattle_cern/) where k8s is from cattle,
 DBs are from pets. HA in k8s fro DBS - Deployments and StatefulSet. I never deployed MySQl to k8s before, but PostreSQl
@@ -59,7 +60,7 @@ After that deploy to prod with minimum prod traffic to new pods via loadbalancer
 
 **Question8 - Please suggest a monitoring solution for your system. How would you notify an admin
 that the resources are scarce?**
-Answer:   
+Answer:
 Prometheus. I really like to work with prometheus, because this solution was created for microservices architecture.
 To reduce number of exporters I am using [netdata](https://my-netdata.io/) as a source for prometheus.
 Also we need to use prometheus alertmanager with rules, which can send notification to different channels as Slack,
