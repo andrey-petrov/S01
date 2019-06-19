@@ -1,2 +1,2 @@
-# S01
-test exercises for S01
+# SO1
+test exercises for SO1
