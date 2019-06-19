@@ -31,7 +31,8 @@ Also to keep data - persistent volumes (as I used for MySql deployment). One of 
 
 **Question 6 - Add CI to the deployment process**
 
-Answer: I would like to recommend next CI deployment process:
+Answer:
+I would like to recommend next CI deployment process:
 - developer commits code to git repo
 - CI server: build new docker image
 - CI server: run unittests, integrations tests, service tests, UI tests, perfomance tests
@@ -45,7 +46,8 @@ Process of deployment:
 
 **Question 7 - Split your deployment into prd/qa/dev environment**
 
-Answer: It's must be dev/stage/prod environment. Also prod should be isolated from dev/stage envs.
+Answer:
+It's must be dev/stage/prod environment. Also prod should be isolated from dev/stage envs.
 So, CI/CD process in dev/stage/prod envs:
 I prefer to have multiple k8s clusters for dev/stage/prod. It's point of
 [discussion](http://vadimeisenberg.blogspot.com/2019/03/multicluster-pros-and-cons.html), but I am adept of 3 enviroments.
@@ -57,7 +59,8 @@ After that deploy to prod with minimum prod traffic to new pods via loadbalancer
 
 **Question8 - Please suggest a monitoring solution for your system. How would you notify an admin
 that the resources are scarce?**
-Answer: Prometheus. I really like to work with prometheus, because this solution was created for microservices architecture.
+Answer:   
+Prometheus. I really like to work with prometheus, because this solution was created for microservices architecture.
 To reduce number of exporters I am using [netdata](https://my-netdata.io/) as a source for prometheus.
 Also we need to use prometheus alertmanager with rules, which can send notification to different channels as Slack,
 VictorOps, emails, sms.
