@@ -60,6 +60,7 @@ After that deploy to prod with minimum prod traffic to new pods via loadbalancer
 
 **Question8 - Please suggest a monitoring solution for your system. How would you notify an admin
 that the resources are scarce?**
+
 Answer:
 Prometheus. I really like to work with prometheus, because this solution was created for microservices architecture.
 To reduce number of exporters I am using [netdata](https://my-netdata.io/) as a source for prometheus.
